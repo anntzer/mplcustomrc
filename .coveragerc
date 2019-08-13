@@ -1,0 +1,4 @@
+[run]
+branch = true
+source = mplcustomrc
+omit = **/_version.py
