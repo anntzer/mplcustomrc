@@ -1,16 +1,4 @@
-try:
-    from ._version import version as __version__
-except ImportError:
-    try:
-        import setuptools_scm
-        __version__ = setuptools_scm.get_version(
-            root="../../", relative_to=__file__,
-            version_scheme="post-release", local_scheme="node-and-date")
-    except (ImportError, LookupError):
-        __version__ = "(unknown version)"
-
-
-import importlib
+import importlib.metadata
 from importlib.machinery import PathFinder
 import logging
 from pathlib import Path
@@ -20,6 +8,10 @@ import tokenize
 import matplotlib as mpl
 
 
+try:
+    __version__ = importlib.metadata.version("mplcustomrc")
+except ImportError:
+    __version__ = "0+unknown"
 _log = logging.getLogger(__name__)
 
 
